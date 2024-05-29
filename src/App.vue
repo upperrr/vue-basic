@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+      {{count}}
+  </div>
+  <h1>
+      Vue.js 라이프사이클 테스트
+  </h1>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  data() {
+      return {
+          count: 0,
+      }
+  }, 
+  beforeCreate() {
+      console.log("LifeCycle is beforeCreate", this.count)
+      // this.test()
+  },
+  created() {
+      console.log("LifeCycle is created", this.count)
+      this.test()
+  },
+  // beforeMount() {
+  //     console.log("LifeCycle is beforeMount", document.querySelector('h1'))
+  // },
+  // mounted() {
+  //     console.log("LifeCycle is mounted", document.querySelector('h1'))
+  // },
+  methods: {
+      test() {
+          console.log("함수호출")
+      },
+  },
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss" scoped></style>
