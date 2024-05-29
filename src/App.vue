@@ -1,40 +1,27 @@
 <template>
   <div>
-      {{count}}
+    {{rawHtml}}
   </div>
-  <h1>
-      Vue.js 라이프사이클 테스트
-  </h1>
+  <div>
+    {{rawHtml2}}
+  </div>
+  <h1 v-html="rawHtml2"></h1>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          count: 0,
-      }
-  }, 
-  beforeCreate() {
-      console.log("LifeCycle is beforeCreate", this.count)
-      // this.test()
-  },
-  created() {
-      console.log("LifeCycle is created", this.count)
-      this.test()
-  },
-  // beforeMount() {
-  //     console.log("LifeCycle is beforeMount", document.querySelector('h1'))
-  // },
-  // mounted() {
-  //     console.log("LifeCycle is mounted", document.querySelector('h1'))
-  // },
-  methods: {
-      test() {
-          console.log("함수호출")
-      },
-  },
+  setup () {
+    
 
+    return {
+      rawHtml: '이것은 텍스트입니다',
+      rawHtml2: '<span style="color: red">이것은 발간색 이어야 함</span>',
+
+    }
+  },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
